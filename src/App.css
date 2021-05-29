@@ -24,3 +24,10 @@ h3,
 p {
   color: #042b5f;
 }
+
+
+#countries {
+  width: 65rem;
+  max-width: 90%;
+  margin: 3rem auto;
+}

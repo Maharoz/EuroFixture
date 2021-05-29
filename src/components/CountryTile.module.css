@@ -1,0 +1,30 @@
+.countryTile {
+  margin: 1rem 0;
+  background: #faf7f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  color: blue;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  display: inline-block;
+  margin: 15px;
+  width: 22%;
+  text-align: center;
+}
+
+.image{
+  height: 50px;
+  width: 50%;
+}
+
+.countryTitle{
+  text-align: center;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .countryTile {
+    width: 50%;
+  }
+}

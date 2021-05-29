@@ -1,6 +1,7 @@
 import * as React from "react";
 import CountryTile from "./CountryTile";
 import styles from "./CountryArea.module.css";
+import Modal from "./UI/Modal";
 
 const cardsDataForGroupA = [
   {
@@ -137,12 +138,21 @@ const cardsDataForGroupF = [
     Key: 24,
     countryName: "Portugal",
     imageUrl: "https://www.worldometers.info/img/flags/po-flag.gif",
-  }
+  },
 ];
 
 const CountryArea = () => {
+
+  const [fixture,setFixture] =React.useState();
+
+  const selectedCountryHandler = counrty => {
+    console.log('In App.js');
+    console.log(counrty);
+  };
+
   return (
     <div>
+      {/* <Modal title="An Error Occured!" message="something went wrong!" /> */}
       <h3 className={styles.groupName}>Group A</h3>
       <ul className={styles.countryList}>
         {cardsDataForGroupA.map((card) => (
@@ -150,6 +160,7 @@ const CountryArea = () => {
             key={card.key}
             countryName={card.countryName}
             imageUrl={card.imageUrl}
+            clickedCountryData={selectedCountryHandler}
           />
         ))}
       </ul>
@@ -161,6 +172,7 @@ const CountryArea = () => {
             key={card.key}
             countryName={card.countryName}
             imageUrl={card.imageUrl}
+            clickedCountryData={selectedCountryHandler}
           />
         ))}
       </ul>
@@ -172,6 +184,7 @@ const CountryArea = () => {
             key={card.key}
             countryName={card.countryName}
             imageUrl={card.imageUrl}
+            clickedCountryData={selectedCountryHandler}
           />
         ))}
       </ul>
@@ -183,6 +196,7 @@ const CountryArea = () => {
             key={card.key}
             countryName={card.countryName}
             imageUrl={card.imageUrl}
+            clickedCountryData={selectedCountryHandler}
           />
         ))}
       </ul>
@@ -194,6 +208,7 @@ const CountryArea = () => {
             key={card.key}
             countryName={card.countryName}
             imageUrl={card.imageUrl}
+            clickedCountryData={selectedCountryHandler}
           />
         ))}
       </ul>
@@ -205,6 +220,7 @@ const CountryArea = () => {
             key={card.key}
             countryName={card.countryName}
             imageUrl={card.imageUrl}
+            clickedCountryData={selectedCountryHandler}
           />
         ))}
       </ul>

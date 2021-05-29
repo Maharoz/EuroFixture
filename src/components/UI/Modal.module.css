@@ -18,8 +18,9 @@
 }
 
 .header {
-  background: #4f005f;
+  background-color: #044599;
   padding: 1rem;
+  text-align: center;
 }
 
 .header h2 {

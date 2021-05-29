@@ -5,22 +5,22 @@ import Modal from "./UI/Modal";
 
 const cardsDataForGroupA = [
   {
-    Key: 1,
+    key: 1,
     countryName: "Italy",
     imageUrl: "https://www.worldometers.info/img/flags/it-flag.gif",
   },
   {
-    Key: 2,
+    key: 2,
     countryName: "Switzerland",
     imageUrl: "https://www.worldometers.info/img/flags/sz-flag.gif",
   },
   {
-    Key: 3,
+    key: 3,
     countryName: "Turkey",
     imageUrl: "https://www.worldometers.info/img/flags/tu-flag.gif",
   },
   {
-    Key: 4,
+    key: 4,
     countryName: "Wales",
     imageUrl: "https://flagpedia.net/data/flags/w580/gb-wls.png",
   },
@@ -28,22 +28,22 @@ const cardsDataForGroupA = [
 
 const cardsDataForGroupB = [
   {
-    Key: 5,
+    key: 5,
     countryName: "Belgium",
     imageUrl: "https://www.worldometers.info/img/flags/be-flag.gif",
   },
   {
-    Key: 6,
+    key: 6,
     countryName: "Denmark",
     imageUrl: "https://www.worldometers.info/img/flags/da-flag.gif",
   },
   {
-    Key: 7,
+    key: 7,
     countryName: "Finland",
     imageUrl: "https://www.worldometers.info/img/flags/fi-flag.gif",
   },
   {
-    Key: 8,
+    key: 8,
     countryName: "Russia",
     imageUrl: "https://www.worldometers.info/img/flags/rs-flag.gif",
   },
@@ -51,22 +51,22 @@ const cardsDataForGroupB = [
 
 const cardsDataForGroupC = [
   {
-    Key: 9,
+    key: 9,
     countryName: "Austria",
     imageUrl: "https://www.worldometers.info/img/flags/au-flag.gif",
   },
   {
-    Key: 10,
+    key: 10,
     countryName: "Netherlands",
     imageUrl: "https://www.worldometers.info/img/flags/nl-flag.gif",
   },
   {
-    Key: 11,
+    key: 11,
     countryName: "Macedonia",
     imageUrl: "https://www.worldometers.info/img/flags/mk-flag.gif",
   },
   {
-    Key: 12,
+    key: 12,
     countryName: "Ukraine",
     imageUrl: "https://www.worldometers.info/img/flags/up-flag.gif",
   },
@@ -74,22 +74,22 @@ const cardsDataForGroupC = [
 
 const cardsDataForGroupD = [
   {
-    Key: 13,
+    key: 13,
     countryName: "Croatia",
     imageUrl: "https://www.worldometers.info/img/flags/hr-flag.gif",
   },
   {
-    Key: 14,
+    key: 14,
     countryName: "Czechia",
     imageUrl: "https://www.worldometers.info/img/flags/ez-flag.gif",
   },
   {
-    Key: 15,
+    key: 15,
     countryName: "England",
     imageUrl: "https://flagpedia.net/data/flags/w580/gb-eng.png",
   },
   {
-    Key: 16,
+    key: 16,
     countryName: "Scotland",
     imageUrl: "https://flagpedia.net/data/flags/w580/gb-sct.png",
   },
@@ -97,22 +97,22 @@ const cardsDataForGroupD = [
 
 const cardsDataForGroupE = [
   {
-    Key: 17,
+    key: 17,
     countryName: "Poland",
     imageUrl: "https://www.worldometers.info/img/flags/pl-flag.gif",
   },
   {
-    Key: 18,
+    key: 18,
     countryName: "Slovakia",
     imageUrl: "https://www.worldometers.info/img/flags/lo-flag.gif",
   },
   {
-    Key: 19,
+    key: 19,
     countryName: "Spain",
     imageUrl: "https://www.worldometers.info/img/flags/sp-flag.gif",
   },
   {
-    Key: 20,
+    key: 20,
     countryName: "Sweeden",
     imageUrl: "https://www.worldometers.info/img/flags/sw-flag.gif",
   },
@@ -120,44 +120,50 @@ const cardsDataForGroupE = [
 
 const cardsDataForGroupF = [
   {
-    Key: 21,
+    key: 21,
     countryName: "France",
     imageUrl: "https://www.worldometers.info/img/flags/fr-flag.gif",
   },
   {
-    Key: 22,
+    key: 22,
     countryName: "Germany",
     imageUrl: "https://www.worldometers.info/img/flags/gm-flag.gif",
   },
   {
-    Key: 23,
+    key: 23,
     countryName: "Hungary",
     imageUrl: "https://www.worldometers.info/img/flags/hu-flag.gif",
   },
   {
-    Key: 24,
+    key: 24,
     countryName: "Portugal",
     imageUrl: "https://www.worldometers.info/img/flags/po-flag.gif",
   },
 ];
 
 const CountryArea = () => {
+  const [fixture, setFixture] = React.useState("");
 
-  const [fixture,setFixture] =React.useState();
-
-  const selectedCountryHandler = counrty => {
-    console.log('In App.js');
-    console.log(counrty);
+  const selectedCountryHandler = (counrty) => {
+    setFixture({
+      title: counrty.countryName,
+      message: "",
+    });
   };
+
+  const errorHandler = () =>{
+    setFixture(null);
+  }
 
   return (
     <div>
-      {/* <Modal title="An Error Occured!" message="something went wrong!" /> */}
+      {fixture && <Modal title={fixture.title} message={fixture.message} onConfirm={errorHandler}/>}
       <h3 className={styles.groupName}>Group A</h3>
       <ul className={styles.countryList}>
         {cardsDataForGroupA.map((card) => (
           <CountryTile
             key={card.key}
+            id={card.key}
             countryName={card.countryName}
             imageUrl={card.imageUrl}
             clickedCountryData={selectedCountryHandler}
@@ -170,6 +176,7 @@ const CountryArea = () => {
         {cardsDataForGroupB.map((card) => (
           <CountryTile
             key={card.key}
+            id={card.key}
             countryName={card.countryName}
             imageUrl={card.imageUrl}
             clickedCountryData={selectedCountryHandler}
@@ -182,6 +189,7 @@ const CountryArea = () => {
         {cardsDataForGroupC.map((card) => (
           <CountryTile
             key={card.key}
+            id={card.key}
             countryName={card.countryName}
             imageUrl={card.imageUrl}
             clickedCountryData={selectedCountryHandler}
@@ -194,6 +202,7 @@ const CountryArea = () => {
         {cardsDataForGroupD.map((card) => (
           <CountryTile
             key={card.key}
+            id={card.key}
             countryName={card.countryName}
             imageUrl={card.imageUrl}
             clickedCountryData={selectedCountryHandler}
@@ -206,6 +215,7 @@ const CountryArea = () => {
         {cardsDataForGroupE.map((card) => (
           <CountryTile
             key={card.key}
+            id={card.key}
             countryName={card.countryName}
             imageUrl={card.imageUrl}
             clickedCountryData={selectedCountryHandler}
@@ -218,6 +228,7 @@ const CountryArea = () => {
         {cardsDataForGroupF.map((card) => (
           <CountryTile
             key={card.key}
+            id={card.key}
             countryName={card.countryName}
             imageUrl={card.imageUrl}
             clickedCountryData={selectedCountryHandler}

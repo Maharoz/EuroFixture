@@ -2,6 +2,7 @@
 import './App.css';
 import MainHeader from './components/MainHeader';
 import CountryArea from './components/CountryArea';
+import Button from './components/UI/Button';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       
       <MainHeader/>
       <section id="countries">
+       
       <CountryArea/>
       </section>
       

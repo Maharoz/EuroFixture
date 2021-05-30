@@ -429,7 +429,7 @@ const CountryTile = (props) => {
 
 
     props.clickedCountryData(info);
-    console.log(info);
+    //console.log(info);
   };
 
   return (

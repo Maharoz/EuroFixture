@@ -141,8 +141,10 @@ const cardsDataForGroupF = [
   },
 ];
 
-const CountryArea = () => {
+const CountryArea = (props) => {
   const [fixture, setFixture] = React.useState("");
+
+
 
   const selectedCountryHandler = (counrty) => {
     setFixture({
@@ -150,7 +152,7 @@ const CountryArea = () => {
       message: "",
       data : counrty.data,
     });
-    console.log(fixture);
+   // console.log(fixture);
   };
 
   const errorHandler = () =>{

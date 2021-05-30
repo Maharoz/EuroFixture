@@ -22,7 +22,7 @@ console.log(props);
             <thead className="thead-dark">
               <tr>
                 {props.data.headers.map((head, i) => (
-                  <th>{head}</th>
+                  <th className={classes.tableHeaderData}>{head}</th>
                 ))}
               </tr>
               </thead>
@@ -30,7 +30,7 @@ console.log(props);
               {props.data.rows.map((row, j) => (
                 <tr>
                   {row.map((val) => (
-                    <td>{val}</td>
+                    <td className={classes.tableData}>{val}</td>
                   ))}
                 </tr>
               ))}

@@ -1,0 +1,32 @@
+.navigationTile {
+    margin: 1rem 0;
+    background: #044599;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    color: #faf7f9;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+    display: inline-block;
+    margin: 15px;
+    width: 47%;
+    text-align: center;
+  }
+  
+  .image{
+    height: 50px;
+    width: 50%;
+  }
+  
+  .navigationTitle{
+      margin: 5px;
+    text-align: center;
+  }
+  
+  
+  @media only screen and (max-width: 600px) {
+    .countryTile {
+      width: 50%;
+    }
+  }
+  

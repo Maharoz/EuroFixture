@@ -144,24 +144,28 @@ const cardsDataForGroupF = [
 const CountryArea = (props) => {
   const [fixture, setFixture] = React.useState("");
 
-
-
   const selectedCountryHandler = (counrty) => {
     setFixture({
       title: counrty.countryName,
       message: "",
-      data : counrty.data,
+      data: counrty.data,
     });
-   // console.log(fixture);
   };
 
-  const errorHandler = () =>{
+  const errorHandler = () => {
     setFixture(null);
-  }
+  };
 
   return (
     <div>
-      {fixture && <Modal title={fixture.title} message={fixture.message}  onConfirm={errorHandler} data={fixture.data}/>}
+      {fixture && (
+        <Modal
+          title={fixture.title}
+          message={fixture.message}
+          onConfirm={errorHandler}
+          data={fixture.data}
+        />
+      )}
       <h3 className={styles.groupName}>Group A</h3>
       <ul className={styles.countryList}>
         {cardsDataForGroupA.map((card) => (

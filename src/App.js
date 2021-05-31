@@ -4,39 +4,26 @@ import MainHeader from "./components/MainHeader";
 import CountryArea from "./components/CountryArea";
 import NavigationArea from "./components/NavigationArea";
 import Knockouts from "./components/knockouts";
+import Footer from "./Footer";
 
 function App() {
-  const [page, setPage] = React.useState('');
+  const [page, setPage] = React.useState("");
 
-  const [show, setshow] = React.useState('');
+  const [show, setshow] = React.useState("");
 
   React.useEffect(() => {
     setshow(true);
-    // console.log("on use effect");
-    // console.log(page);
-    // console.log("on use effect");
   }, []);
 
   const appNavigationHandler = (selectedNav) => {
-    // console.log("In APP JS");
-    // console.log(selectedNav);
-    // console.log("In APP JS");
+    console.log(selectedNav);
 
-    setPage({
-      id: selectedNav.id,
-      name: selectedNav.navigationName,
-    });
-
-    console.log(page);
-
-    if (page.name === 'Group Stage') {
+    if (selectedNav.navigationName === "Group Stage") {
       setshow(true);
-      console.log(show);
-    } 
-    
-    if (page.name === 'Knock outs') {
+    }
+
+    if (selectedNav.navigationName === "Knock outs") {
       setshow(false);
-      console.log(show);
     }
   };
 
@@ -45,11 +32,11 @@ function App() {
       <MainHeader />
       <section id="countries">
         <NavigationArea clickedAppNavigationData={appNavigationHandler} />
-        {show && (
-          <CountryArea />
-        )}
+        {show && <CountryArea />}
         {!show && <Knockouts />}
       </section>
+
+     <Footer/>
     </div>
   );
 }

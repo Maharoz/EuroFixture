@@ -5,19 +5,18 @@ const NavigationTile = (props) => {
     if (props.id == 1) {
       var info = {
         id: props.id,
-        navigationName: props.navigationName
+        navigationName: props.navigationName,
       };
     }
 
     if (props.id == 2) {
       var info = {
         id: props.id,
-        navigationName: props.navigationName
+        navigationName: props.navigationName,
       };
     }
 
     props.clickedNavigationData(info);
-    //console.log(info);
   };
 
   return (
